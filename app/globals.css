@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -23,4 +23,149 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100%;
+  font-family: var(--font-geist-sans), var(--font-geist-mono), 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+  background: var(--background, #ffffff);
+  color: var(--text, #222222);
+  transition: background 0.3s, color 0.3s;
 }
+
+/* ===== THEME VARIABLES ===== */
+:root {
+  --background: #ffffff;
+  --text: #222222;
+  --card-bg: #fff;
+  --card-border: #e0e0e0;
+  --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  --link: #0070f3;
+  --link-hover: #0366d6;
+}
+
+.theme-wrapper[data-theme="dark"] {
+  --background: #181818;
+  --text: #f0f0f0;
+  --card-bg: #232323;
+  --card-border: #333;
+  --card-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  --link: #FFD700;
+  --link-hover: #fffbe6;
+}
+
+/* ===== MAIN CONTENT (THEMED) ===== */
+.theme-wrapper {
+  min-height: 80vh;
+  background: var(--background);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Example card styling */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+/* ===== NAVBAR & FOOTER (ALWAYS SAME) ===== */
+.navbar,
+.footer {
+  background: #000 !important;
+  color: #FFD700 !important;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+  transition: none !important;
+}
+
+/* If you want links in navbar/footer to be gold: */
+.navbar a,
+.footer a {
+  color: #FFD700 !important;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.navbar a:hover,
+.footer a:hover {
+  color: #fffbe6 !important;
+}
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.sun-icon, .moon-icon {
+  display: block;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.7));
+}
+
+/* ===== SCROLLBAR STYLING (OPTIONAL) ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ===== SELECTION COLOR ===== */
+::selection {
+  background: #FFD700;
+  color: #000;
+}
+
+/* ===== ANIMATIONS (for flipping text etc.) ===== */
+@keyframes flip {
+  0%   { transform: rotateY(0deg);}
+  50%  { transform: rotateY(180deg);}
+  100% { transform: rotateY(0deg);}
+}
+@keyframes flipIn {
+  0%   { transform: rotateY(90deg);}
+  100% { transform: rotateY(0deg);}
+}
+@keyframes blurInOut {
+  0%   { filter: blur(0px) brightness(1); }
+  40%  { filter: blur(6px) brightness(1.4);}
+  60%  { filter: blur(6px) brightness(1.4);}
+  100% { filter: blur(0px) brightness(1);}
+}
+
+/* ===== UTILITY CLASSES ===== */
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  .navbar,
+  .footer {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  .card {
+    padding: 1rem;
+  }
+}
+
