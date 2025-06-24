@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const AboutSection: React.FC = () => {
   return (
     <div style={{ position: 'relative', height: '400px', overflow: 'hidden' }}>
-      {/* Blurred Background Image */}
+      {/* Clear Background Image */}
       <div 
         style={{
           position: 'absolute',
@@ -17,8 +17,8 @@ const AboutSection: React.FC = () => {
           backgroundImage: 'url("/images/about-background.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          filter: 'blur(2px)',
-          opacity: 0.3,
+          // filter: 'blur(2px)', // <-- Removed for clarity
+          opacity: 0.7, // Increased opacity for more vivid image
           zIndex: 0,
         }}
       />
@@ -31,7 +31,7 @@ const AboutSection: React.FC = () => {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          backgroundColor: 'rgba(255, 255, 255, 0.4)', // More transparent overlay
           zIndex: 1,
         }}
       />
@@ -78,3 +78,5 @@ const AboutSection: React.FC = () => {
 };
 
 export default AboutSection;
+
+
